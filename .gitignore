@@ -1,10 +1,5 @@
 # dependencies
-/node_modules
-package-lock.json
-yarn.lock
+*node_modules
 
 # build
-/bin
-
-# test
-.yo-repository
+*bin
