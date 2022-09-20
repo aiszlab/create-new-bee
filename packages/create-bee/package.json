@@ -15,6 +15,7 @@
     "./bin"
   ],
   "dependencies": {
+    "commander": "^9.4.0",
     "inquirer": "^9.1.2",
     "yeoman-environment": "^3.10.0"
   },

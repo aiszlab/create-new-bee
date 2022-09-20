@@ -13,5 +13,8 @@
   },
   "files": [
     "./bin"
-  ]
+  ],
+  "dependencies": {
+    "commander": "^9.4.0"
+  }
 }
