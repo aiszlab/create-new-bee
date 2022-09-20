@@ -4,22 +4,22 @@
   "description": "bee app 初始化脚手架",
   "author": "murukal",
   "license": "MIT",
+  "type": "module",
   "bin": {
     "bee": "./bin/index.js"
   },
   "scripts": {
     "build": "tsc"
   },
+  "files": [
+    "./bin"
+  ],
   "dependencies": {
     "inquirer": "^9.1.2",
     "yeoman-environment": "^3.10.0"
   },
-  "type": "module",
   "devDependencies": {
     "@types/inquirer": "^9.0.1",
     "@types/yeoman-environment": "^2.10.8"
-  },
-  "files": [
-    "./bin"
-  ]
+  }
 }
