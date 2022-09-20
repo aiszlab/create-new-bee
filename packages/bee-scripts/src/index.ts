@@ -3,7 +3,7 @@ import { Command } from 'commander'
 
 const program = new Command()
 
-program.command('create').action(() => {
+program.command('start').action(() => {
   console.log('1111')
 })
 
