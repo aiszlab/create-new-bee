@@ -1,11 +1,11 @@
 {
   "name": "bee-scripts",
   "version": "0.0.1-beta.1",
-  "description": "",
+  "description": "bee app 的CI工程化脚本",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC"
+  "author": "murukal",
+  "license": "MIT",
+  "bin": {
+    "bee": "./bin/index.js"
+  }
 }
