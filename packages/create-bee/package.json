@@ -2,7 +2,16 @@
   "name": "create-bee",
   "version": "0.0.1-beta.1",
   "description": "",
-  "main": "index.js",
+  "main": "./bin/index.js",
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "^9.1.2",
+    "yeoman-environment": "^3.10.0"
+  },
+  "type": "module",
+  "devDependencies": {
+    "@types/inquirer": "^9.0.1",
+    "@types/yeoman-environment": "^2.10.8"
+  }
 }
