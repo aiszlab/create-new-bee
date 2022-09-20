@@ -1,11 +1,14 @@
 {
   "name": "create-bee",
-  "version": "0.0.1-beta.2",
+  "version": "0.0.1-beta.3",
   "description": "bee app 初始化脚手架",
   "author": "murukal",
   "license": "MIT",
   "bin": {
     "bee": "./bin/index.js"
+  },
+  "scripts": {
+    "build": "tsc"
   },
   "dependencies": {
     "inquirer": "^9.1.2",
