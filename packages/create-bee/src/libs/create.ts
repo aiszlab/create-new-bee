@@ -11,7 +11,7 @@ export const create = async () => {
   //   'generator-beedrill': ''
   // })
 
-  env.register(env.resolveModulePath('generator-beedrill'), 'beedrill')
+  env.register(env.resolveModulePath('@bee/generator-bee'), 'beedrill')
   console.log(env.getRegisteredPackages())
 
   // 项目初始化: yeoman 托管
