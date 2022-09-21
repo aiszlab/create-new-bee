@@ -30,7 +30,7 @@ module.exports = class extends Generator {
 
     // 循环拷贝
     templatePaths.forEach((templatePath) => {
-      this.fs.copyTpl(this.templatePath(templatePath), this.destinationPath(templatePath), this.props)
+      this.renderTemplate(this.templatePath(templatePath), this.destinationPath(templatePath), this.props)
     })
   }
 }

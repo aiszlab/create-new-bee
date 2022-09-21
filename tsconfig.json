@@ -13,8 +13,6 @@
     // Allow 'import x from y' when a module doesn't have a default export.
     "allowSyntheticDefaultImports": true,
     // Enable importing .json files
-    "resolveJsonModule": true,
-    // Disable emitting file from a compilation.
-    "noEmit": true
+    "resolveJsonModule": true
   }
 }
