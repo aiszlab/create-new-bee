@@ -1,5 +1,6 @@
 const Generator = require('yeoman-generator')
 const walkSync = require('walk-sync')
+const path = require('path')
 
 /**
  * yeoman generator
@@ -10,26 +11,26 @@ module.exports = class extends Generator {
       {
         type: 'input',
         name: 'name',
-        message: '请输入项目名称？',
+        message: '请输入项目名称',
         validate: (input) => /[(a-z)|/-]+/.test(input)
       },
       {
         type: 'input',
         name: 'description',
-        message: '请输入项目描述？'
+        message: '请输入项目描述'
       }
     ])
   }
 
   async writting() {
     // 递归读取文件树
-    const templatePaths = walkSync(__dirname, {
+    const templatePaths = walkSync(path.join(__dirname, 'templates'), {
       directories: false
     })
 
-    this.log('templatePaths====', templatePaths)
-
     // 循环拷贝
-    this.fs.copy(this.templatePath('.'), this.destinationPath('.'))
+    templatePaths.forEach((templatePath) => {
+      this.fs.copyTpl(this.templatePath(templatePath), this.destinationPath(templatePath), this.props)
+    })
   }
 }

@@ -7,14 +7,15 @@ export const create = async () => {
   // 创建yeoman运行时
   const env = yeoman.createEnv()
   // 运行时：下载以来
-  const isInstalled = await env.installLocalGenerators({
-    'generator-fantu': ''
-  })
-  // generator 安装失败
-  if (!isInstalled) {
-  }
+  // const isInstalled = await env.installLocalGenerators({
+  //   'generator-beedrill': ''
+  // })
+
+  env.register(env.resolveModulePath('generator-beedrill'), 'beedrill')
+  console.log(env.getRegisteredPackages())
+
   // 项目初始化: yeoman 托管
-  const isInitialized = await env.run('fantu:react-mui').catch(() => false)
+  const isInitialized = await env.run('beedrill').catch(() => false)
   // 项目初始化失败
-  console.log('issssss====', isInitialized, chalk.red('111'))
+  console.log('isInitialized====', isInitialized)
 }

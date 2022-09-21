@@ -2,14 +2,14 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     // Set the JavaScript language version for emitted JavaScript and include compatible library declarations.
-    "target": "es2016",
+    "target": "ES5",
     // Specify what module code is generated.
-    "module": "Node16",
+    "module": "ESNext",
     // Specify how TypeScript looks up a file from a given module specifier.
-    "moduleResolution": "Node16",
-    // Specify an output folder for all emitted files.
-    "outDir": "./bin",
-    // Specify the root folder within your source files.
-    "rootDir": "./src"
+    "moduleResolution": "Node",
+    // Specify a set of bundled library declaration files that describe the target runtime environment.
+    "lib": ["dom", "dom.iterable", "esnext"],
+    // Specify what JSX code is generated.
+    "jsx": "react-jsx"
   }
 }

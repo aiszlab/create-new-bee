@@ -9,6 +9,7 @@
     "bee": "./bin/index.js"
   },
   "scripts": {
+    "dev": "tsc -w",
     "build": "tsc"
   },
   "files": [

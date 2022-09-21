@@ -1,13 +1,13 @@
 {
-  "name": "generator-beedrill",
+  "name": "@bee/generator-bee",
   "version": "0.0.1-beta.1",
   "description": "bee 物料市场",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "author": "murukal",
   "license": "MIT",
+  "main": "./app/index.js",
+  "keywords": [
+    "yeoman-generator"
+  ],
   "dependencies": {
     "walk-sync": "^3.0.0",
     "yeoman-generator": "^5.7.0"
