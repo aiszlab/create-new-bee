@@ -1,0 +1,15 @@
+{
+  "name": "<%= name %>",
+  "version": "1.0.0",
+  "description": "<%= description %>",
+  "scripts": {
+    "dev": "bee-scripts dev",
+    "build": "bee-scripts build"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@bee/core": "latest",
+    "bee-scripts": "latest"
+  },
+  "devDependencies": {}
+}

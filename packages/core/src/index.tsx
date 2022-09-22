@@ -12,7 +12,9 @@ export const boorstrap = async (props: BootstrapProps) => {
   const routes = props.routes
     ? import(props.routes === true ? resolve(PluginType.Routes) : props.routes.path)
     : undefined
-  const store = props.store ? import(props.store === true ? resolve(PluginType.Store) : props.store.path) : undefined
+  const store = props.store
+    ? await import(props.store === true ? resolve(PluginType.Store) : props.store.path)
+    : undefined
 
-  ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(<App {...props} />)
+  ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(<App store={store} isStrict />)
 }

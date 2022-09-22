@@ -6,8 +6,13 @@ const path = require('path')
  * yeoman generator
  */
 module.exports = class extends Generator {
+  injections = {
+    name: '',
+    description: ''
+  }
+
   async prompting() {
-    this.options = await this.prompt([
+    this.injections = await this.prompt([
       {
         type: 'input',
         name: 'name',
@@ -30,7 +35,7 @@ module.exports = class extends Generator {
 
     // 循环拷贝
     templatePaths.forEach((templatePath) => {
-      this.renderTemplate(this.templatePath(templatePath), this.destinationPath(templatePath), this.props)
+      this.fs.copyTpl(this.templatePath(templatePath), this.destinationPath(templatePath), this.injections)
     })
   }
 }
