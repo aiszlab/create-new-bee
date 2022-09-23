@@ -1,20 +1,54 @@
 import ReactDOM from 'react-dom/client'
-import { BootstrapProps } from './typings'
-import App from './App'
-import { resolve } from 'path-browserify'
+import { ReactNode, StrictMode } from 'react'
+import { RouteObject } from 'react-router-dom'
+import Router from './components/Router'
+import { Provider as StoreProvide, ProviderProps } from 'react-redux'
 
+/**
+ * 插件枚举
+ */
 export enum PluginType {
-  Store = 'store',
-  Routes = 'routes'
+  Store = 'store'
 }
 
-export const boorstrap = async (props: BootstrapProps) => {
-  const routes = props.routes
-    ? import(props.routes === true ? resolve(PluginType.Routes) : props.routes.path)
-    : undefined
-  const store = props.store
-    ? await import(props.store === true ? resolve(PluginType.Store) : props.store.path)
-    : undefined
+interface FoundationProps {
+  store: ProviderProps['store'] | false
+  isStrict: boolean
+}
 
-  ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(<App store={store} isStrict />)
+type Props = (
+  | {
+      routes: RouteObject[]
+    }
+  | {
+      routes: false
+      children: ReactNode
+    }
+) &
+  FoundationProps
+
+/**
+ * 渲染器
+ */
+export const boorstrap = async (props: Props) => {
+  let renderer: ReactNode = null
+
+  // route 扩展
+  if (props.routes) {
+    renderer = <Router routes={props.routes} />
+  } else {
+    renderer = props.children
+  }
+
+  // store 扩展
+  if (props.store) {
+    renderer = <StoreProvide store={props.store}>{renderer}</StoreProvide>
+  }
+
+  // StrictMode 扩展
+  if (props.isStrict) {
+    renderer = <StrictMode>{renderer}</StrictMode>
+  }
+
+  ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(renderer)
 }

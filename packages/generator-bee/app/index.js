@@ -23,7 +23,8 @@ module.exports = class extends Generator {
         type: 'input',
         name: 'description',
         message: '请输入项目描述'
-      }
+      },
+      {}
     ])
   }
 
