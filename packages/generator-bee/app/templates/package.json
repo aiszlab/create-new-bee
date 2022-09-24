@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "<%= description %>",
   "scripts": {
-    "dev": "bee-scripts dev",
+    "dev": "bee-scripts start",
     "build": "bee-scripts build"
   },
   "license": "MIT",
