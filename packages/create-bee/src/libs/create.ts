@@ -6,12 +6,13 @@ import chalk from 'chalk'
 export const create = async () => {
   // 创建yeoman运行时
   const env = yeoman.createEnv()
-  // 运行时：下载以来
-  // const isInstalled = await env.installLocalGenerators({
-  //   'generator-beedrill': ''
-  // })
+  // 运行时：下载依赖
+  const isInstalled = await env.installLocalGenerators({
+    '@bee-lab/generator-bee': ''
+  })
 
-  env.register(env.resolveModulePath('@bee/generator-bee'), 'beedrill')
+  console.log('isInstalled====', isInstalled)
+
   console.log(env.getRegisteredPackages())
 
   // 项目初始化: yeoman 托管
