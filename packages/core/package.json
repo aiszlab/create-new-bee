@@ -2,7 +2,7 @@
   "name": "@bee-lab/core",
   "version": "0.0.1-beta.1",
   "main": "./dist/index.js",
-  "private": "false",
+  "private": false,
   "files": [
     "./dist"
   ],
