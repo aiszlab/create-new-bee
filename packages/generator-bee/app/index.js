@@ -23,8 +23,7 @@ module.exports = class extends Generator {
         type: 'input',
         name: 'description',
         message: '请输入项目描述'
-      },
-      {}
+      }
     ])
   }
 
@@ -33,6 +32,8 @@ module.exports = class extends Generator {
     const templatePaths = walkSync(path.join(__dirname, 'templates'), {
       directories: false
     })
+
+    this.log('templatePaths====', templatePaths)
 
     // 循环拷贝
     templatePaths.forEach((templatePath) => {

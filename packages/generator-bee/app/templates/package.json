@@ -8,7 +8,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@bee/core": "latest",
+    "@bee-lab/core": "latest",
     "bee-scripts": "latest"
   },
   "devDependencies": {}

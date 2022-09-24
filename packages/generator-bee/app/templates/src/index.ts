@@ -1,10 +1,12 @@
-import { boorstrap } from '@bee/core'
+import { boorstrap } from '@bee-lab/core'
+import store from './store'
+import routes from './routes'
 
 /**
  * 渲染DOM
  */
 boorstrap({
-  routes: true,
-  store: true,
+  routes,
+  store,
   isStrict: true
 })

@@ -15,5 +15,8 @@
   },
   "devDependencies": {
     "@types/yeoman-generator": "^5.2.11"
+  },
+  "devDependencies": {
+    "webpack": "latest"
   }
 }
