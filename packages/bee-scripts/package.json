@@ -1,6 +1,6 @@
 {
   "name": "bee-scripts",
-  "version": "0.0.1-beta.5",
+  "version": "0.0.1-beta.6",
   "description": "bee app 的 CI 工程化脚本",
   "main": "index.js",
   "author": "murukal",
@@ -16,6 +16,8 @@
   ],
   "dependencies": {
     "build-scripts": "^1.3.0",
-    "commander": "^9.4.0"
+    "commander": "^9.4.0",
+    "webpack": "^5.74.0",
+    "webpack-dev-server": "^4.11.1"
   }
 }
