@@ -9,12 +9,13 @@
     "bee-scripts": "./bin/index.js"
   },
   "scripts": {
-    "build": "tsc"
+    "build": "rm -rf bin && tsc"
   },
   "files": [
     "./bin"
   ],
   "dependencies": {
+    "build-scripts": "^1.3.0",
     "commander": "^9.4.0"
   }
 }
