@@ -1,6 +1,6 @@
 {
   "name": "bee-scripts",
-  "version": "0.0.1-beta.2",
+  "version": "0.0.1-beta.3",
   "description": "bee app 的 CI 工程化脚本",
   "main": "index.js",
   "author": "murukal",
