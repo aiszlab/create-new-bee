@@ -1,6 +1,6 @@
 import { createRoot } from 'react-dom/client'
 import { ReactNode, StrictMode } from 'react'
-import { RouteObject } from 'react-router-dom'
+import { BrowserRouter, RouteObject } from 'react-router-dom'
 import { Router } from './components/routes'
 import { Provider as StoreProvide, ProviderProps } from 'react-redux'
 
@@ -35,7 +35,11 @@ export const boorstrap = async (props: Props) => {
 
   // route 扩展
   if (props.routes) {
-    renderer = <Router routes={props.routes} />
+    renderer = (
+      <BrowserRouter>
+        <Router routes={props.routes} />
+      </BrowserRouter>
+    )
   } else {
     renderer = props.children
   }

@@ -1,4 +1,4 @@
-import { BrowserRouter, RouteObject, useRoutes } from 'react-router-dom'
+import { RouteObject, useRoutes } from 'react-router-dom'
 
 interface Props {
   routes: RouteObject[]
@@ -6,10 +6,7 @@ interface Props {
 
 const Router = (props: Props) => {
   // 路由渲染
-  const routes = useRoutes(props.routes)
-
-  // UI
-  return <BrowserRouter>{routes}</BrowserRouter>
+  return useRoutes(props.routes)
 }
 
 export default Router
