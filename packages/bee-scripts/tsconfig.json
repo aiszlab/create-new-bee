@@ -10,6 +10,6 @@
     // Specify an output folder for all emitted files.
     "outDir": "./bin",
     // Specify the root folder within your source files.
-    "rootDir": "./src"
+    "rootDir": "./src",
   }
 }

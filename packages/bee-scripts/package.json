@@ -1,12 +1,14 @@
 {
   "name": "bee-scripts",
-  "version": "0.0.1-beta.8",
+  "version": "0.0.1-beta.9",
   "description": "bee app 的 CI 工程化脚本",
-  "main": "index.js",
   "author": "murukal",
   "license": "MIT",
   "bin": {
     "bee-scripts": "./bin/index.js"
+  },
+  "exports": {
+    "./typings": "./typings"
   },
   "scripts": {
     "build": "rm -rf bin && tsc"
