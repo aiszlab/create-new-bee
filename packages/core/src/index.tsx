@@ -1,7 +1,7 @@
-import ReactDOM from 'react-dom/client'
+import { createRoot } from 'react-dom/client'
 import { ReactNode, StrictMode } from 'react'
 import { RouteObject } from 'react-router-dom'
-import Router from './components/Router'
+import { Router } from './components/routes'
 import { Provider as StoreProvide, ProviderProps } from 'react-redux'
 
 /**
@@ -50,5 +50,5 @@ export const boorstrap = async (props: Props) => {
     renderer = <StrictMode>{renderer}</StrictMode>
   }
 
-  ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(renderer)
+  createRoot(document.getElementById('root') as HTMLElement).render(renderer)
 }

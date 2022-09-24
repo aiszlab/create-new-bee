@@ -5,9 +5,8 @@ interface Props {
 }
 
 const Router = (props: Props) => {
-  const routes = useRoutes(props.routes)
-
-  return routes
+  // 路由渲染
+  return useRoutes(props.routes)
 }
 
 export default Router
