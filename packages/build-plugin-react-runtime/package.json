@@ -1,0 +1,14 @@
+{
+  "name": "@bee-lab/build-plugin-react-runtime",
+  "version": "1.0.0-beta.1",
+  "main": "./build/index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "files": [
+    "./build"
+  ],
+  "devDependencies": {
+    "bee-scripts": "^0.0.1-beta.9"
+  }
+}
