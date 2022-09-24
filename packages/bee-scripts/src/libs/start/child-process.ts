@@ -5,7 +5,7 @@ import { Runner } from '../runner'
   const runner = new Runner({
     command: 'start',
     args: {},
-    getBuiltInPlugins: () => ['build-plugin-react-app'],
+    getBuiltInPlugins: () => ['@bee-lab/plugin-react-runtime', 'build-plugin-react-app'],
     rootDir: process.cwd()
   })
 
