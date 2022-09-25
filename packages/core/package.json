@@ -1,8 +1,8 @@
 {
   "name": "@bee-lab/core",
   "version": "0.0.1-beta.4",
-  "main": "./dist/index.js",
   "private": false,
+  "main": "./dist/index.js",
   "files": [
     "./dist"
   ],

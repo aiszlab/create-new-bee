@@ -1,8 +1,8 @@
 import { createRoot } from 'react-dom/client'
 import { ReactNode, StrictMode } from 'react'
-import { BrowserRouter, RouteObject } from 'react-router-dom'
-import { Router } from './components/routes'
+import { RouteObject } from 'react-router-dom'
 import { Provider as StoreProvide, ProviderProps } from 'react-redux'
+import Loadable from './libs/Loadable'
 
 /**
  * 插件枚举
@@ -36,9 +36,12 @@ export const boorstrap = async (props: Props) => {
   // route 扩展
   if (props.routes) {
     renderer = (
-      <BrowserRouter>
-        <Router routes={props.routes} />
-      </BrowserRouter>
+      <Loadable
+        factory={() => import('./components/route/BrowserRouter')}
+        injections={{
+          routes: props.routes
+        }}
+      />
     )
   } else {
     renderer = props.children
