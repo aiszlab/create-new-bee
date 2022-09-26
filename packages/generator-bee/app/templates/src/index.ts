@@ -1,6 +1,6 @@
 import { boorstrap } from '@bee-lab/core'
 import store from './store'
-import routes from './routes'
+import routes from './routes/index'
 
 /**
  * 渲染DOM
