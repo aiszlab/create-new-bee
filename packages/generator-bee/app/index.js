@@ -1,6 +1,6 @@
 const Generator = require('yeoman-generator')
-const walkSync = require('walk-sync')
 const path = require('path')
+const glob = require('glob')
 
 /**
  * yeoman generator
@@ -29,11 +29,10 @@ module.exports = class extends Generator {
 
   async writting() {
     // 递归读取文件树
-    const templatePaths = walkSync(path.join(__dirname, 'templates'), {
-      directories: false
+    const templatePaths = glob.sync('**/*', {
+      cwd: path.join(__dirname, 'templates'),
+      nodir: true
     })
-
-    this.log('templatePaths====', templatePaths)
 
     // 循环拷贝
     templatePaths.forEach((templatePath) => {

@@ -10,10 +10,11 @@
     "yeoman-generator"
   ],
   "dependencies": {
-    "walk-sync": "^3.0.0",
+    "glob": "^8.0.3",
     "yeoman-generator": "^5.7.0"
   },
   "devDependencies": {
+    "@types/glob": "^8.0.0",
     "@types/yeoman-generator": "^5.2.11"
   }
 }
