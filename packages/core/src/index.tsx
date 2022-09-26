@@ -59,3 +59,8 @@ export const boorstrap = async (props: Props) => {
 
   createRoot(document.getElementById('root') as HTMLElement).render(renderer)
 }
+
+/**
+ * Loadable 组件
+ */
+export { Loadable }
