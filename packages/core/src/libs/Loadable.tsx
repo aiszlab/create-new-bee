@@ -1,13 +1,4 @@
-import {
-  Suspense,
-  lazy,
-  ReactNode,
-  useMemo,
-  ComponentType,
-  LazyExoticComponent,
-  ComponentProps,
-  ComponentPropsWithRef
-} from 'react'
+import { Suspense, lazy, ReactNode, useMemo, ComponentType } from 'react'
 
 interface Props<P> {
   factory: () => Promise<{ default: ComponentType<P> }>
@@ -29,12 +20,15 @@ const Loadable = <P,>(props: Props<P>) => {
   /**
    * injections
    */
-  const injections = useMemo<any>(() => {
+  const injections = useMemo(() => {
     return props.injections
   }, [props.injections])
 
   return (
     <Suspense fallback={fallback}>
+      {/* TODO i don't have any idea to resolve this ts problem */}
+      {/* TODO if someone could resolve this, very thanks */}
+      {/* @ts-ignore */}
       <Component {...injections} />
     </Suspense>
   )
