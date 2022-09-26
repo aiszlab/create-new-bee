@@ -6,7 +6,7 @@
     "build": "tsc"
   },
   "files": [
-    "./build"
+    "build"
   ],
   "devDependencies": {
     "bee-scripts": "^0.0.1-beta.9"
