@@ -11,6 +11,9 @@ module.exports = class extends Generator {
     description: ''
   }
 
+  /**
+   * 注入用户选项
+   */
   async prompting() {
     this.injections = await this.prompt([
       {
@@ -27,6 +30,9 @@ module.exports = class extends Generator {
     ])
   }
 
+  /**
+   * 生成项目文件
+   */
   async writting() {
     // 递归读取文件树
     const templatePaths = glob.sync('**/*', {
@@ -38,5 +44,12 @@ module.exports = class extends Generator {
     templatePaths.forEach((templatePath) => {
       this.fs.copyTpl(this.templatePath(templatePath), this.destinationPath(templatePath), this.injections)
     })
+  }
+
+  /**
+   * 下载依赖
+   */
+  install() {
+    this.yarnInstall()
   }
 }

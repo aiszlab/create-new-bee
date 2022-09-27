@@ -11,11 +11,17 @@ export enum PluginType {
   Store = 'store'
 }
 
+/**
+ * 基础
+ */
 interface FoundationProps {
   store: ProviderProps['store'] | false
   isStrict: boolean
 }
 
+/**
+ * 定制化
+ */
 type Props = (
   | {
       routes: RouteObject[]
