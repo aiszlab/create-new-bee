@@ -4,8 +4,8 @@ import { start } from './libs/start'
 
 const program = new Command()
 
-program.command('start').action(() => {
-  start()
+program.command('start').action(async () => {
+  await start().catch(() => false)
 })
 
 program.parse()
