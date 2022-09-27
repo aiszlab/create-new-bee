@@ -6,7 +6,7 @@ import { sync } from 'cross-spawn'
  */
 export const start = async () => {
   // 同步调用 react-scripts
-  sync('node', [require.resolve('react-scripts/bin/react-scripts.js')], {
+  sync('node', [require.resolve('react-scripts/bin/react-scripts.js'), 'start'], {
     stdio: 'inherit'
   })
 }
