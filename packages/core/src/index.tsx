@@ -1,7 +1,7 @@
 import { createRoot } from 'react-dom/client'
 import { ReactNode, StrictMode } from 'react'
 import { RouteObject } from 'react-router-dom'
-import { Provider as StoreProvide, ProviderProps } from 'react-redux'
+import { ProviderProps } from 'react-redux'
 import Loadable from './libs/Loadable'
 
 /**
@@ -55,7 +55,15 @@ export const boorstrap = async (props: Props) => {
 
   // store 扩展
   if (props.store) {
-    renderer = <StoreProvide store={props.store}>{renderer}</StoreProvide>
+    renderer = (
+      <Loadable
+        factory={() => import('./components/store/Provide')}
+        injections={{
+          store: props.store,
+          children: renderer
+        }}
+      />
+    )
   }
 
   // StrictMode 扩展
