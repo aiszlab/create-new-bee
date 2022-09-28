@@ -5,13 +5,6 @@ import { ProviderProps } from 'react-redux'
 import Loadable from './libs/Loadable'
 
 /**
- * 插件枚举
- */
-export enum PluginType {
-  Store = 'store'
-}
-
-/**
  * 基础
  */
 interface FoundationProps {

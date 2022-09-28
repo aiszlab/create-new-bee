@@ -1,7 +1,7 @@
 import { sync } from 'cross-spawn'
 
 /**
- * 启动开发模式
+ * 启动生产模式
  * @react 依赖react-scripts
  */
 export const build = async () => {
