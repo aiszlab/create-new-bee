@@ -8,14 +8,15 @@ const glob = require('glob')
 module.exports = class extends Generator {
   injections = {
     name: '',
-    description: ''
+    description: '',
+    useTypeScript: false
   }
 
   /**
    * 注入用户选项
    */
   async prompting() {
-    this.injections = await this.prompt([
+    const options = await this.prompt([
       {
         type: 'input',
         name: 'name',
@@ -29,35 +30,33 @@ module.exports = class extends Generator {
       },
       {
         type: 'checkbox',
-        name: 'language',
-        message: '请选择语言',
-        choices: [
-          {
-            value: 'ts',
-            name: 'Typescript'
-          },
-          {
-            value: 'js',
-            name: 'Javascript'
-          }
-        ]
-      },
-      {
-        type: 'list',
         name: 'plugins',
         message: '请选择需要使用的插件',
         choices: [
           {
-            value: 'store',
-            name: 'redux store'
+            value: 'redux',
+            name: 'Redux'
           },
           {
             value: 'route',
-            name: 'react-router-dom'
+            name: 'ReactRouterDom'
+          },
+          {
+            value: 'type-script',
+            name: 'TypeScript'
           }
         ]
       }
     ])
+
+    const useTypeScript = options.plugins.includes('type-script')
+
+    this.injections = {
+      name: options.name,
+      description: options.description,
+      useTypeScript,
+      language: useTypeScript ? 'ts' : 'js'
+    }
   }
 
   /**
