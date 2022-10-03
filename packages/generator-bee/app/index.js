@@ -26,6 +26,36 @@ module.exports = class extends Generator {
         type: 'input',
         name: 'description',
         message: '请输入项目描述'
+      },
+      {
+        type: 'checkbox',
+        name: 'language',
+        message: '请选择语言',
+        choices: [
+          {
+            value: 'ts',
+            name: 'Typescript'
+          },
+          {
+            value: 'js',
+            name: 'Javascript'
+          }
+        ]
+      },
+      {
+        type: 'list',
+        name: 'plugins',
+        message: '请选择需要使用的插件',
+        choices: [
+          {
+            value: 'store',
+            name: 'redux store'
+          },
+          {
+            value: 'route',
+            name: 'react-router-dom'
+          }
+        ]
       }
     ])
   }
