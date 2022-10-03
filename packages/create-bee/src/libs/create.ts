@@ -11,8 +11,6 @@ export enum PackageName {
 export const PACKAGE_ALIAS = '@bee-lab/bee'
 
 export const create = async (options: Options) => {
-  console.log('options===', options)
-
   // 创建yeoman运行时
   const env = yeoman.createEnv()
   // 运行时：下载依赖
