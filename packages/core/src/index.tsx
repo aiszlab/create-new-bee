@@ -50,7 +50,7 @@ export const boorstrap = async (props: Props) => {
   if (props.store) {
     renderer = (
       <Loadable
-        factory={() => import('./components/store/Provide')}
+        factory={() => import('./components/store/Provider')}
         injections={{
           store: props.store,
           children: renderer

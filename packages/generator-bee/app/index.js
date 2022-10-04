@@ -9,7 +9,10 @@ module.exports = class extends Generator {
   injections = {
     name: '',
     description: '',
-    useTypeScript: false
+    useTypeScript: false,
+    useRoute: false,
+    useStore: false,
+    language: 'js'
   }
 
   /**
@@ -34,7 +37,7 @@ module.exports = class extends Generator {
         message: '请选择需要使用的插件',
         choices: [
           {
-            value: 'redux',
+            value: 'store',
             name: 'Redux'
           },
           {
@@ -50,11 +53,15 @@ module.exports = class extends Generator {
     ])
 
     const useTypeScript = options.plugins.includes('type-script')
+    const useRoute = options.plugins.includes('route')
+    const useStore = options.plugins.includes('store')
 
     this.injections = {
       name: options.name,
       description: options.description,
       useTypeScript,
+      useRoute,
+      useStore,
       language: useTypeScript ? 'ts' : 'js'
     }
   }
@@ -63,22 +70,46 @@ module.exports = class extends Generator {
    * 生成项目文件
    */
   async writting() {
+    const cwd = path.join(__dirname, 'templates')
+
     // 递归读取文件树
     const templatePaths = glob.sync('**/*', {
-      cwd: path.join(__dirname, 'templates'),
-      nodir: true
+      cwd,
+      nodir: true,
+      absolute: true,
+      dot: true
     })
+
+    // ignore
+    const ignores = [
+      ...(this.injections.useTypeScript
+        ? []
+        : glob.sync('tsconfig.json.ejs', {
+            cwd,
+            absolute: true,
+            nodir: true
+          })),
+      ...(this.injections.useRoute
+        ? []
+        : glob.sync('src/routes/**/*', {
+            cwd,
+            absolute: true,
+            nodir: true
+          })),
+      ...(this.injections.useStore
+        ? []
+        : glob.sync('src/store/**/*', {
+            cwd,
+            absolute: true,
+            nodir: true
+          }))
+    ]
 
     // 循环拷贝
-    templatePaths.forEach((templatePath) => {
-      this.fs.copyTpl(this.templatePath(templatePath), this.destinationPath(templatePath), this.injections)
+    this.fs.copyTpl(templatePaths, this.destinationPath(), this.injections, undefined, {
+      globOptions: {
+        ignore: ignores
+      }
     })
-  }
-
-  /**
-   * 下载依赖
-   */
-  install() {
-    this.yarnInstall()
   }
 }

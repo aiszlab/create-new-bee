@@ -1,0 +1,12 @@
+import { boorstrap } from '@bee-lab/core'
+<% if (useRoute) { %>import routes from './routes/index'
+<% } %><% if (useStore) { %>import store from './store'
+<% } %>
+/**
+ * 渲染DOM
+ */
+boorstrap({
+  routes<% if (!useRoute) {%>: false<% } %>,
+  store<% if (!useStore) {%>: false<% } %>,
+  isStrict: true
+})
