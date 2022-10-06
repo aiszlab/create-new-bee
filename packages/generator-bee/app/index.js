@@ -2,6 +2,12 @@ const Generator = require('yeoman-generator')
 const path = require('path')
 const glob = require('glob')
 
+const TYPE_SCRIPT = 'type-script'
+const ROUTE = 'route'
+const STORE = 'store'
+
+const plugins = new Map().set(TYPE_SCRIPT, 'TypeScript').set(ROUTE, 'ReactRouterDom').set(STORE, 'Redux')
+
 /**
  * yeoman generator
  */
@@ -35,26 +41,17 @@ module.exports = class extends Generator {
         type: 'checkbox',
         name: 'plugins',
         message: '请选择需要使用的插件',
-        choices: [
-          {
-            value: 'store',
-            name: 'Redux'
-          },
-          {
-            value: 'route',
-            name: 'ReactRouterDom'
-          },
-          {
-            value: 'type-script',
-            name: 'TypeScript'
-          }
-        ]
+        default: [...plugins.keys()],
+        choices: [...plugins.entries()].map(([value, name]) => ({
+          value,
+          name
+        }))
       }
     ])
 
-    const useTypeScript = options.plugins.includes('type-script')
-    const useRoute = options.plugins.includes('route')
-    const useStore = options.plugins.includes('store')
+    const useTypeScript = options.plugins.includes(TYPE_SCRIPT)
+    const useRoute = options.plugins.includes(ROUTE)
+    const useStore = options.plugins.includes(STORE)
 
     this.injections = {
       name: options.name,

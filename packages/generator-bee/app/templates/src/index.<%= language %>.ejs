@@ -1,12 +1,15 @@
 import { boorstrap } from '@bee-lab/core'
 <% if (useRoute) { %>import routes from './routes/index'
 <% } %><% if (useStore) { %>import store from './store'
+<% } %><% if (!useRoute) { %>import { createElement } from 'react'
+import Home from './pages/Home'
 <% } %>
 /**
  * 渲染DOM
  */
 boorstrap({
-  routes<% if (!useRoute) {%>: false<% } %>,
-  store<% if (!useStore) {%>: false<% } %>,
-  isStrict: true
+  routes<% if (!useRoute) { %>: false<% } %>,
+  store<% if (!useStore) { %>: false<% } %>,
+  isStrict: true<% if (!useRoute) { %>,
+  children: createElement(Home)<% } %>
 })

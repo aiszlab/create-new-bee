@@ -3,16 +3,14 @@ import { useNavigate } from 'react-router-dom'
 const Home = () => {
   const navigate = useNavigate()
 
+  const onNavigate = () => {
+    navigate('/about')
+  }
+
   return (
     <>
       Home
-      <button
-        onClick={() => {
-          navigate('/about')
-        }}
-      >
-        前往about
-      </button>
+      <button onClick={onNavigate}>前往about</button>
     </>
   )
 }
