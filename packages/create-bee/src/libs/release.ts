@@ -84,7 +84,7 @@ export const release = async () => {
       stdio: 'inherit'
     })
     spawn.sync('npm', ['run', 'build', `--workspace=${name}`], {
-      stdio: 'inherit'
+      stdio: 'ignore'
     })
     spawn.sync('git', ['add', '.'], {
       stdio: 'inherit'
