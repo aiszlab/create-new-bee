@@ -76,12 +76,24 @@ export const release = async () => {
     const version = inc(profile.version, releaseType, 'beta')
     if (!version) return
 
-    spawn.sync('npm', ['pkg', 'set', `version=${version}`, `--workspace=${name}`])
-    spawn.sync('npm', ['run', 'build', `--workspace=${name}`])
-    spawn.sync('git', ['add', 'package.json'])
-    spawn.sync('git', ['commit', '-m', `chore: version ${version} release`])
-    spawn.sync('git', ['push'])
-    spawn.sync('npm', ['publish', `--workspace=${name}`])
+    spawn.sync('npm', ['pkg', 'set', `version=${version}`, `--workspace=${name}`], {
+      stdio: 'inherit'
+    })
+    spawn.sync('npm', ['run', 'build', `--workspace=${name}`], {
+      stdio: 'inherit'
+    })
+    spawn.sync('git', ['add', 'package.json'], {
+      stdio: 'inherit'
+    })
+    spawn.sync('git', ['commit', '-m', `chore: version ${version} release`], {
+      stdio: 'inherit'
+    })
+    spawn.sync('git', ['push'], {
+      stdio: 'inherit'
+    })
+    spawn.sync('npm', ['publish', `--workspace=${name}`], {
+      stdio: 'inherit'
+    })
   })
 }
 
