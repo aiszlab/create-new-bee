@@ -46,6 +46,10 @@ export const release = async () => {
         name: 'releaseType',
         choices: () => [
           {
+            name: 'prerelease',
+            value: 'prerelease'
+          },
+          {
             name: 'major',
             value: 'major'
           },
@@ -82,7 +86,7 @@ export const release = async () => {
     spawn.sync('npm', ['run', 'build', `--workspace=${name}`], {
       stdio: 'inherit'
     })
-    spawn.sync('git', ['add', 'package.json'], {
+    spawn.sync('git', ['add', '.'], {
       stdio: 'inherit'
     })
     spawn.sync('git', ['commit', '-m', `chore: version ${version} release`], {
