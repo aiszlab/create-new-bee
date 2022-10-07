@@ -36,7 +36,44 @@ export const release = async () => {
     const profile = profiles.get(name)
     if (!profile) return
 
-    const version = inc(profile.version, 'prerelease', 'beta')
+    /* 版本确认 */
+    const { releaseType } = await inquirer.prompt<{
+      releaseType: ReleaseType
+    }>([
+      {
+        message: '请确认需要版本',
+        type: 'list',
+        name: 'releaseType',
+        choices: () => [
+          {
+            name: 'major',
+            value: 'major'
+          },
+          {
+            name: 'premajor',
+            value: 'premajor'
+          },
+          {
+            name: 'minor',
+            value: 'minor'
+          },
+          {
+            name: 'preminor',
+            value: 'preminor'
+          },
+          {
+            name: 'patch',
+            value: 'patch'
+          },
+          {
+            name: 'prepatch',
+            value: 'prepatch'
+          }
+        ]
+      }
+    ])
+
+    const version = inc(profile.version, releaseType, 'beta')
     if (!version) return
 
     spawn.sync('npm', ['pkg', 'set', `version=${version}`, `--workspace=${name}`])
