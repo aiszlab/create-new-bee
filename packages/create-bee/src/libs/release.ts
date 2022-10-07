@@ -77,6 +77,10 @@ export const release = async () => {
     if (!version) return
 
     spawn.sync('npm', ['pkg', 'set', `version=${version}`, `--workspace=${name}`])
+    spawn.sync('git', ['add', 'package.json'])
+    spawn.sync('git', ['commit', '-m', `chore: version ${version} release`])
+    spawn.sync('git', ['push'])
+    spawn.sync('npm', ['publish', `--workspace=${name}`])
   })
 }
 
