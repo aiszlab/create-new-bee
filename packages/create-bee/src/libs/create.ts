@@ -1,5 +1,3 @@
-// third
-import inquirer from 'inquirer'
 import yeoman from 'yeoman-environment'
 import chalk from 'chalk'
 import { Options } from '../typings/create.js'

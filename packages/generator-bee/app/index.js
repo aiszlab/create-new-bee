@@ -74,39 +74,15 @@ module.exports = class extends Generator {
       cwd,
       nodir: true,
       absolute: true,
-      dot: true
+      dot: true,
+      ignore: [
+        ...(this.injections.useTypeScript ? [] : ['tsconfig.json.ejs']),
+        ...(this.injections.useRoute ? [] : ['src/routes/**/*']),
+        ...(this.injections.useStore ? [] : ['src/store/**/*'])
+      ]
     })
-
-    // ignore
-    const ignores = [
-      ...(this.injections.useTypeScript
-        ? []
-        : glob.sync('tsconfig.json.ejs', {
-            cwd,
-            absolute: true,
-            nodir: true
-          })),
-      ...(this.injections.useRoute
-        ? []
-        : glob.sync('src/routes/**/*', {
-            cwd,
-            absolute: true,
-            nodir: true
-          })),
-      ...(this.injections.useStore
-        ? []
-        : glob.sync('src/store/**/*', {
-            cwd,
-            absolute: true,
-            nodir: true
-          }))
-    ]
 
     // 循环拷贝
-    this.fs.copyTpl(templatePaths, this.destinationPath(), this.injections, undefined, {
-      globOptions: {
-        ignore: ignores
-      }
-    })
+    this.fs.copyTpl(templatePaths, this.destinationPath(), this.injections)
   }
 }
