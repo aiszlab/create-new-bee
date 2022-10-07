@@ -1,5 +1,4 @@
-import {} from 'fs'
-import {} from 'semver'
+import { inc, ReleaseType } from 'semver'
 import { createRequire } from 'module'
 import { join } from 'path'
 import { Package } from '../typings/package.js'
@@ -33,10 +32,14 @@ export const release = async () => {
 
   if (!names.length) return
 
-  names.forEach((name) => {
+  names.forEach(async (name) => {
     const profile = profiles.get(name)
     if (!profile) return
-    spawn.sync('npm', ['pkg', 'set', 'version=0.0.2', `--workspace=${name}`])
+
+    const version = inc(profile.version, 'prerelease', 'beta')
+    if (!version) return
+
+    spawn.sync('npm', ['pkg', 'set', `version=${version}`, `--workspace=${name}`])
   })
 }
 
