@@ -19,7 +19,9 @@ program
   .command('add')
   .argument('<path>')
   .action(async (path: string) => {
-    await execa('git', ['add', path]).catch(() => false)
+    await execa('git', ['add', path], {
+      stdio: 'inherit'
+    }).catch(() => null)
   })
 
 /**
@@ -46,7 +48,9 @@ program
       ? 'chore'
       : 'feat'
 
-    await execa('git', ['commit', '-m', `${prefix}: ${message}`])
+    await execa('git', ['commit', '-m', `${prefix}: ${message}`], {
+      stdio: 'inherit'
+    }).catch(() => null)
   })
 
 /**
