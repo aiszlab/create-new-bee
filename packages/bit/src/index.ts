@@ -49,4 +49,11 @@ program
     await execa('git', ['commit', '-m', `${prefix}: ${message}`])
   })
 
+/**
+ * copy from git push
+ */
+program.command('push').action(async () => {
+  await execa('git', ['push']).catch(() => false)
+})
+
 program.parse()
