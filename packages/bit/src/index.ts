@@ -53,7 +53,11 @@ program
  * copy from git push
  */
 program.command('push').action(async () => {
-  const stdout = (await execa('git', ['push']).catch(() => null))?.stdout
+  const stdout = (
+    await execa('git', ['push'], {
+      stdout: process.stdout
+    }).catch(() => null)
+  )?.stdout
   console.log(stdout)
 })
 
