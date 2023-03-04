@@ -1,7 +1,7 @@
 {
-  "name": "@bee-lab/generator-bee",
-  "version": "0.0.2",
-  "description": "bee 物料市场",
+  "name": "generator-new-bee",
+  "version": "0.0.1",
+  "description": "new bee 模板项目",
   "author": "murukal",
   "private": false,
   "license": "MIT",

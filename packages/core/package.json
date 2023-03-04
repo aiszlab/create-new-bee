@@ -1,5 +1,5 @@
 {
-  "name": "@bee-lab/core",
+  "name": "@fantulab/bee-core",
   "version": "1.0.0",
   "private": false,
   "main": "./dist/index.js",
