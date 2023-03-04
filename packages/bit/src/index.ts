@@ -62,4 +62,13 @@ program.command('push').action(() => {
   }).catch(() => null)
 })
 
+/**
+ * copy from git pull
+ */
+program.command('pull').action(() => {
+  execa('git', ['pull'], {
+    stdio: 'inherit'
+  }).catch(() => null)
+})
+
 program.parse()
