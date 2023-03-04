@@ -53,7 +53,9 @@ program
  * copy from git push
  */
 program.command('push').action(() => {
-  execa('git', ['push']).stdout?.pipe(process.stdout)
+  execa('git', ['push'], {
+    stdio: 'inherit'
+  }).catch(() => null)
 })
 
 program.parse()
