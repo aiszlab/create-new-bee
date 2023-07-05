@@ -5,3 +5,6 @@
 *bin
 *dist
 *build
+
+# log
+*yarn-error.log
