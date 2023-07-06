@@ -2,7 +2,8 @@
   "name": "@aiszlab/wysiwyg",
   "version": "0.1.0",
   "private": false,
-  "main": "./runtime.js",
+  "main": "./runtime.mjs",
+  "typings": "./runtime.d.ts",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

@@ -1,15 +1,24 @@
 import { Options } from '../typings/create.js'
-import { createRequire } from 'module'
+import open from 'open'
 
-const require = createRequire(import.meta.url)
-const nextStart = require('@aiszlab/wysiwyg')
+import { startServer } from '@aiszlab/wysiwyg'
 
 /**
  * @author murukal
  * @description 脚手架创建模板的函数，集成了不少插件，慢慢看~
  */
 export const create = async (options: Options) => {
-  console.log(nextStart)
+  console.log(startServer)
 
-  nextStart()
+  const teardown = await startServer({
+    dir: '/Users/murukal/workspace/create-new-bee/packages/wysiwyg',
+    isDev: false,
+    port: 3000,
+    useWorkers: true,
+    hostname: '0.0.0.0'
+  })
+
+  const child = await open('http://localhost:3000/', {})
+
+//   await teardown()
 }
