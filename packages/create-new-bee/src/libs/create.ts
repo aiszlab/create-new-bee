@@ -7,20 +7,19 @@ import { fileURLToPath } from 'url'
 
 /**
  * @author murukal
- * @description 脚手架创建模板的函数，集成了不少插件，慢慢看~
+ * @description intergation many clis
  */
 export const create = async (options: Options) => {
-  console.log(fileURLToPath(import.meta.url))
-
   const currentDirname = dirname(fileURLToPath(import.meta.url))
 
   const wysiwygRunner = new Worker(resolve(currentDirname, '../utils/wysiwyg.runner.js'))
 
+  // listen the worker message
+  // select one cli to go on
   wysiwygRunner.on('message', () => {
     console.log(222)
   })
 
-  // const child = await open('http://localhost:3000/', {})
-
-  // await teardown()
+  // open the browser
+  await open('http://localhost:3000/')
 }
