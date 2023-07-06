@@ -21,7 +21,9 @@
     "glob": "^8.0.3",
     "inquirer": "^9.1.2",
     "semver": "^7.3.8",
-    "yeoman-environment": "^4.0.0-beta.3"
+    "yeoman-environment": "^4.0.0-beta.3",
+    "next": "13.4.8",
+    "@aiszlab/wysiwyg": "*"
   },
   "devDependencies": {
     "@types/cross-spawn": "^6.0.2",
