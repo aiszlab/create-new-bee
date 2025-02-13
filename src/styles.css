@@ -1,4 +1,4 @@
-@import "@aiszlab/wasp/tailwind";
+@import "@aiszlab/wasp/tailwindcss";
 
 @layer components {
   @import "musae";

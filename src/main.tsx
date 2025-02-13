@@ -1,7 +1,7 @@
 import { bootstrap } from "@aiszlab/bee";
-import "./styles.css";
 import Application from "./application";
 import { lazy } from "react";
+import "./styles.css";
 
 const Home = lazy(() => import("./pages/home"));
 
