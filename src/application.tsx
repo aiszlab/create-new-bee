@@ -1,5 +1,15 @@
-const Application = () => {
-  return <div className='w-screen h-screen flex justify-center items-center'>New Bee</div>
-}
+import { type ApplicationProps } from "@aiszlab/bee";
+import Layout from "./layout";
+import { ThemeProvider, ConfigProvider } from "musae";
 
-export default Application
+const Application = ({ children }: ApplicationProps) => {
+  return (
+    <ConfigProvider>
+      <ThemeProvider>
+        <Layout>{children}</Layout>
+      </ThemeProvider>
+    </ConfigProvider>
+  );
+};
+
+export default Application;
