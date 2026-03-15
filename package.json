@@ -8,20 +8,20 @@
     "build": "wasp build"
   },
   "dependencies": {
-    "@aiszlab/bee": "^1.5.12",
-    "@aiszlab/fuzzy": "^1.5.12",
-    "@aiszlab/relax": "^1.5.12",
-    "musae": "^0.5.15",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "@aiszlab/bee": "^2.1.2",
+    "@aiszlab/fuzzy": "^2.1.2",
+    "@aiszlab/relax": "^2.1.2",
+    "musae": "1.0.26",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
   },
   "devDependencies": {
-    "@aiszlab/wasp": "^1.5.12",
-    "@types/react": "^18.3.18",
-    "@types/react-dom": "^18.3.5",
-    "eslint": "^9.20.1",
+    "@aiszlab/wasp": "^2.1.2",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "eslint": "^10.0.3",
     "eslint-config-react-app": "^7.0.1",
-    "typescript": "^5.7.3"
+    "typescript": "^5.9.3"
   },
   "prettier": {
     "tabWidth": 2,
